@@ -26,10 +26,10 @@
 	</fx:Script> 
 	<s:VGroup>
 		<components1:NativeButton id="home" label="Home"/>
-		<s:DropDownList id="menuList" labelField="menuLabel"/>
-		<s:DropDownList id="chapterList" labelField="chapterLabel" width="200"/>
+		<s:DropDownList id="menuList" labelField="menuLabel" width="100%" />
+		<s:DropDownList id="chapterList" labelField="chapterLabel" width="100%"/>
 		<s:List id="qitemsList" 
-				width="200" height="200"
+				width="100%" height="100%"
 				labelField="choice"/>
 	</s:VGroup>
 </s:Skin>
