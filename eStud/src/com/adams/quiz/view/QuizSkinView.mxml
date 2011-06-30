@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mediators="com.adams.quiz.view.mediators.*" 
+		xmlns:components="com.adams.swizdao.views.components.*" xmlns:components1="com.adams.quiz.view.components.*">	
+	<fx:Metadata>
+		[HostComponent("com.adams.quiz.view.mediators.QuizViewMediator")]
+	</fx:Metadata>  
+	<fx:Script>
+		<![CDATA[
+			/*
+			
+			Copyright (c) 2011 Adams Studio India, All Rights Reserved 
+			
+			@author   NS Devaraj
+			@contact  nsdevaraj@gmail.com
+			@project  eStud
+			
+			@internal 
+			
+			*/
+		]]>
+	</fx:Script> 
+	<fx:Declarations>
+		<s:RadioButtonGroup id="grp"/>
+	</fx:Declarations>
+	<s:VGroup>
+		<components:NativeButton id="home" label="home"/>
+		<s:TextArea id="question" width="100%"/>
+		<components1:QRadioButton id="choice1" group="{grp}"/>
+		<components1:QRadioButton id="choice2" group="{grp}"/>
+		<components1:QRadioButton id="choice3" group="{grp}"/>
+		<components1:QRadioButton id="choice4" group="{grp}"/>
+		<s:HGroup>
+			<components:NativeButton id="back" label="back"/>
+			<s:TextInput id="navigate" restrict="[0-9]" widthInChars="2"/>
+			<s:Label text=" of "/>
+			<s:Label id="totalQs"/>
+			<components:NativeButton id="next" label="next"/>
+		</s:HGroup>
+	</s:VGroup>
+</s:Skin>

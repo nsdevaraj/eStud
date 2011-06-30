@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fxpProperties abbreviated="false" authoringTool="Flex Builder" compiles="true" parentProject="340248ad-10da-42c1-81a5-87c75e800207" projectUUID="340248ad-10da-42c1-81a5-87c75e800207" pureCatalystProject="false" sdkVersion="4.5.0" uuid="bc857032-4cfb-4bf2-8ce5-f77c629bcf01" version="15">
+  <projects/>
+  <src/>
+  <swc>
+    <linked location="sdkPlaceHolder" path="sdkPlaceHolder" position="0" uuid="bc857032-4cfb-4bf2-8ce5-f77c629bcf01"/>
+    <linked location="C:/Documents and Settings/Administrator/Adobe Flash Builder 4.5/QuizMaster/libs" path="/libs" position="1" uuid="bc857032-4cfb-4bf2-8ce5-f77c629bcf01"/>
+  </swc>
+  <misc/>
+  <theme/>
+  <mxmlFormattingPrefs groupAttributesByState="true" maxLineWidth="100" mxmlAlignAttributes="true" mxmlAttributeOrder="id,userLabel,includeIn,excludeFrom,visible,x,y,z,left,right,top,bottom,width,height,minWidth,minHeight,maxWidth,maxHeight,label" mxmlKeepAttributeValuesOrganized="true"/>
+</fxpProperties>

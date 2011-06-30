@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mediators="com.adams.quiz.view.mediators.*" 
+		xmlns:components="com.adams.swizdao.views.components.*">	
+	<fx:Metadata>
+		[HostComponent("com.adams.quiz.view.mediators.HomeViewMediator")]
+	</fx:Metadata>  
+	<s:states>
+		<s:State name='Menu'/> 
+		<s:State name='Chapter'/>
+	</s:states>
+	<fx:Script>
+		<![CDATA[
+			/*
+			
+			Copyright (c) 2011 Adams Studio India, All Rights Reserved 
+			
+			@author   NS Devaraj
+			@contact  nsdevaraj@gmail.com
+			@project  QuizMaster
+			
+			@internal 
+			
+			*/
+		]]>
+	</fx:Script>
+	<s:VGroup>
+		<components:NativeButton id="search" includeIn="Chapter,Menu" label="Search"/>	
+		<s:Label text="Home" includeIn="Menu"/>
+		<s:List id="menuList" labelField="menuLabel" includeIn="Menu"/>
+		
+		<s:Label text="Pick a topic" includeIn="Chapter"/>
+		<components:NativeButton id="backtoHome" includeIn="Chapter" label="Back"/>	
+		<s:List id="chapterList" includeIn="Chapter" labelField="chapterLabel">
+			<s:layout>
+				<s:TileLayout/>
+			</s:layout>
+		</s:List>
+	</s:VGroup>
+</s:Skin>
