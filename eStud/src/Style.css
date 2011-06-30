@@ -1,13 +1,26 @@
-/*
-
-Copyright (c) @year@ @company.name@, All Rights Reserved 
-
-@author   @author.name@
-@contact  @author.email@
-@project  @project.name@
-
-@internal 
-
-*/
 @namespace s "library://ns.adobe.com/flex/spark";
-@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace mx "library://ns.adobe.com/flex/mx"; 
+
+@font-face
+{
+	fontFamily: Calibri;
+	src: url("/assets/fonts/CALIBRI.TTF");
+	embedAsCFF: true;
+}  
+s|Application{
+	chrome-color:#2d3239;
+	content-background-color:#313235;
+	color:#bdbdbd;
+	fontFamily: Calibri;
+	background-color:#2d3540;
+	symbol-color:#ffff00;
+	focus-color:#efefef;
+}  
+s|Label.header{
+	font-size:22;
+	color:#959595;
+	font-weight:normal;
+}
+s|ButtonBar{
+	skin-class:ClassReference('assets.skins.ButtonBar.ButtonBarSkin');
+}
