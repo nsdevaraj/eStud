@@ -27,10 +27,10 @@
 	<s:VGroup>
 		<components:NativeButton id="home" label="home"/>
 		<s:TextArea id="question" width="100%"/>
-		<components1:QRadioButton id="choice1" group="{grp}"/>
-		<components1:QRadioButton id="choice2" group="{grp}"/>
-		<components1:QRadioButton id="choice3" group="{grp}"/>
-		<components1:QRadioButton id="choice4" group="{grp}"/>
+		<components1:QRadioButton id="choice1" group="{grp}" width="100%"/>
+		<components1:QRadioButton id="choice2" group="{grp}" width="100%"/>
+		<components1:QRadioButton id="choice3" group="{grp}" width="100%"/>
+		<components1:QRadioButton id="choice4" group="{grp}" width="100%"/>
 		<s:HGroup>
 			<components:NativeButton id="back" label="back"/>
 			<s:TextInput id="navigate" restrict="[0-9]" widthInChars="2"/>
