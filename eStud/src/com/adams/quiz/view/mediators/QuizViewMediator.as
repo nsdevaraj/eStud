@@ -149,11 +149,15 @@ package com.adams.quiz.view.mediators
 			randomRadio.correctAnswer = true;
 			view.question.text =currentQuestion.question.split(currentQuestion.choice).join('___')
 			var nameArr:Array = currentQuestion.choice.split(',')
-			if(nameArr[0].length>0){	
-				view.question.text =view.question.text.split(nameArr[0]).join('___')
-			}
-			if(nameArr[1].length>0){	
-				view.question.text =view.question.text.split(nameArr[1]).join('___')
+			if(nameArr){	
+				if(nameArr.length>1){
+					if(nameArr[0].length>0){	
+						view.question.text =view.question.text.split(nameArr[0]).join('___')
+					}
+					if(nameArr[1].length>0){	
+						view.question.text =view.question.text.split(nameArr[1]).join('___')
+					}
+				}
 			}
 		}  
 		
