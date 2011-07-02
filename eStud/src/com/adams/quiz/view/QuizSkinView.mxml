@@ -35,7 +35,7 @@
 		</s:VGroup>
 		<s:HGroup id="footer" width="100%" bottom="20">
 			<components:NativeButton id="back" label="back"/>
-			<s:NumericStepper  id="navigate" maxChars="2" textAlign="center" minimum="1" stepSize="1" />
+			<s:NumericStepper  id="navigate" maxChars="1" textAlign="center" minimum="1" stepSize="1" />
 			<components:NativeButton id="next" label="next"/>
 		</s:HGroup>
 	</s:Group>

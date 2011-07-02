@@ -22,6 +22,8 @@ package com.adams.quiz.view.mediators
 	import com.adams.swizdao.views.mediators.AbstractViewMediator;
 	
 	import flash.events.Event;
+	import flash.events.FocusEvent;
+	import flash.events.TextEvent;
 	
 	import mx.collections.ArrayCollection;
 	import mx.collections.IList;
@@ -178,6 +180,8 @@ package com.adams.quiz.view.mediators
 			view.choice3.clicked.add(onSelection);
 			view.choice4.clicked.add(onSelection);
 			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);
+			//view.navigate.textDisplay.addEventListener(TextOperationEvent.CHANGE,viewClickHandlers,false,0,true);
+			//view.navigate.textDisplay.addEventListener(FocusEvent.FOCUS_IN,function(event:Object):void{ event.currentTarget.selectAll()}) 
 			super.setViewListeners(); 
 		}
 		
@@ -205,6 +209,7 @@ package com.adams.quiz.view.mediators
 					setQuestion(gotoQuestion(currentPosition));
 					break;
 				case view.navigate:
+				case view.navigate.textDisplay:
 					currentPosition = (view.navigate.value)-1;
 					setQuestion(gotoQuestion(currentPosition));
 					break;
