@@ -102,7 +102,7 @@ package com.adams.quiz.view.mediators
 			}
 			currentPosition = 0;
 			maxPosition = randomList.length;
-			view.totalQs.text = maxPosition.toString();
+			view.navigate.maximum= maxPosition+1;
 			setQuestion(gotoQuestion(currentPosition));
 		}
 		
@@ -110,11 +110,12 @@ package com.adams.quiz.view.mediators
 			if(pos>=0 && pos<maxPosition){
 				currentPosition = pos;
 				currentQuestion = randomList.getItemAt(currentPosition) as QuestionItem;
+				setAllWrongChoices();
 				oldPosition = currentPosition;
 			}else{
 				currentPosition = oldPosition;
 			}
-			view.navigate.text = (currentPosition+1).toString();
+			view.navigate.value = (currentPosition+1);
 			return currentQuestion;
 		} 
 		
@@ -143,7 +144,6 @@ package com.adams.quiz.view.mediators
 		}
 		
 		protected function setQuestion(currentQuestion:QuestionItem):void {
-			setAllWrongChoices();
 			var randomRadio:QRadioButton = view[Utils.CHOICE+Math.round(Math.random()*(4-1)+(1))]
 			randomRadio.label = currentQuestion.choice;
 			randomRadio.correctAnswer = true;
@@ -173,7 +173,7 @@ package com.adams.quiz.view.mediators
 			view.choice2.clicked.add(onSelection);
 			view.choice3.clicked.add(onSelection);
 			view.choice4.clicked.add(onSelection);
-			view.navigate.addEventListener(TextOperationEvent.CHANGE,viewClickHandlers,false,0,true);
+			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);
 			super.setViewListeners(); 
 		}
 		
@@ -201,7 +201,7 @@ package com.adams.quiz.view.mediators
 					setQuestion(gotoQuestion(currentPosition));
 					break;
 				case view.navigate:
-					currentPosition = parseInt(view.navigate.text)-1;
+					currentPosition = (view.navigate.value)-1;
 					setQuestion(gotoQuestion(currentPosition));
 					break;
 			}

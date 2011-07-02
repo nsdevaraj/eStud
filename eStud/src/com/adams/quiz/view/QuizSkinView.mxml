@@ -24,19 +24,19 @@
 	<fx:Declarations>
 		<s:RadioButtonGroup id="grp"/>
 	</fx:Declarations>
-	<s:VGroup>
-		<components:NativeButton id="home" label="home"/>
-		<s:TextArea id="question" width="100%"/>
-		<components1:QRadioButton id="choice1" group="{grp}" width="100%"/>
-		<components1:QRadioButton id="choice2" group="{grp}" width="100%"/>
-		<components1:QRadioButton id="choice3" group="{grp}" width="100%"/>
-		<components1:QRadioButton id="choice4" group="{grp}" width="100%"/>
-		<s:HGroup>
+	<s:Group width="100%" height="100%">
+		<components:NativeButton id="home" label="home" top="10"/>
+		<s:TextArea id="question" maxHeight="370" top="{home.height+10}" selectable="false"/>
+		<s:VGroup bottom="110">
+			<components1:QRadioButton id="choice1" group="{grp}" width="100%"/>
+			<components1:QRadioButton id="choice2" group="{grp}" width="100%"/>
+			<components1:QRadioButton id="choice3" group="{grp}" width="100%"/>
+			<components1:QRadioButton id="choice4" group="{grp}" width="100%"/>
+		</s:VGroup>
+		<s:HGroup id="footer" width="100%" bottom="20">
 			<components:NativeButton id="back" label="back"/>
-			<s:TextInput id="navigate" restrict="[0-9]" widthInChars="2"/>
-			<s:Label text=" of "/>
-			<s:Label id="totalQs"/>
+			<s:NumericStepper  id="navigate"   />
 			<components:NativeButton id="next" label="next"/>
 		</s:HGroup>
-	</s:VGroup>
+	</s:Group>
 </s:Skin>

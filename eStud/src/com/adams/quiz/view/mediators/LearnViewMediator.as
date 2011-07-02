@@ -90,7 +90,7 @@ package com.adams.quiz.view.mediators
 			randomList= ArrayCollection(currentInstance.mapConfig.randomList);
 			currentPosition = 0;
 			maxPosition = randomList.length;
-			view.totalQs.text = maxPosition.toString();
+			view.navigate.maximum= maxPosition;
 			setQuestion(gotoQuestion(currentPosition));
 		}
 		
@@ -102,7 +102,7 @@ package com.adams.quiz.view.mediators
 			}else{
 				currentPosition = oldPosition;
 			}
-			view.navigate.text = (currentPosition+1).toString();
+			view.navigate.value = (currentPosition+1);
 			return currentQuestion;
 		} 
 		
@@ -110,7 +110,7 @@ package com.adams.quiz.view.mediators
 			view.choice.text = currentQuestion.choice;
 			view.question.text = currentQuestion.question;
 		}  
-		 
+		
 		/**
 		 * Create listeners for all of the view's children that dispatch events
 		 * that we want to handle in this mediator.
@@ -120,7 +120,7 @@ package com.adams.quiz.view.mediators
 			view.home.clicked.add(viewClickHandlers);
 			view.back.clicked.add(viewClickHandlers);
 			view.next.clicked.add(viewClickHandlers);
-			view.navigate.addEventListener(TextOperationEvent.CHANGE,viewClickHandlers,false,0,true);
+			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);			
 			super.setViewListeners(); 
 		}
 		
@@ -140,8 +140,8 @@ package com.adams.quiz.view.mediators
 					currentPosition++;
 					setQuestion(gotoQuestion(currentPosition));
 					break;
-				case view.navigate:
-					currentPosition = parseInt(view.navigate.text)-1;
+				case view.navigate: 
+					currentPosition = (view.navigate.value)-1;
 					setQuestion(gotoQuestion(currentPosition));
 					break;
 			}

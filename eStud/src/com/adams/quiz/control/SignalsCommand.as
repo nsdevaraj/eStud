@@ -68,6 +68,7 @@ package com.adams.quiz.control
 			var currentChapter:Chapter = currentInstance.mapConfig.currentChapter as Chapter;
 			var currentMenu:Menu = currentChapter.menu;
 			signal.emailBody = currentInstance.config.serverLocation+currentMenu.menuXML+Utils.fileSplitter + currentChapter.chapterXML+Utils.XML;
+			trace(signal.emailBody )
 			signal.receivers = ['item','topics'];
 			signalSequence.addSignal(signal);
 		}

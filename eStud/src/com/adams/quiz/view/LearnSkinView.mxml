@@ -21,17 +21,17 @@
 			*/
 		]]>
 	</fx:Script> 
-	<s:VGroup>
-		<components:NativeButton id="home" label="home"/>
-		<s:Label id="choice"/>
-		<s:TextArea id="question" width="100%"/>
-		<s:HGroup>
+	<s:Group width="100%" height="100%">
+		<s:VGroup top="20">
+			<components:NativeButton id="home" label="home"/>
+			<s:Label id="choice" fontSize="40" maxDisplayedLines="1"/>
+		</s:VGroup>
+		<s:TextArea id="question" maxHeight="370" top="150" selectable="false"/> 
+		<s:HGroup id="footer" width="100%" bottom="20">
 			<components:NativeButton id="back" label="back"/>
-			<s:TextInput id="navigate" restrict="[0-9]" widthInChars="2"/>
-			<s:Label text=" of "/>
-			<s:Label id="totalQs"/>
+			<s:NumericStepper  id="navigate"   />
 			<components:NativeButton id="next" label="next"/>
+			<components:NativeButton id="quiz" label="quiz" includeInLayout="{quiz.visible}"/>
 		</s:HGroup>
-		<components:NativeButton id="quiz" label="quiz" includeInLayout="{quiz.visible}"/>
-	</s:VGroup>
+	</s:Group> 
 </s:Skin>

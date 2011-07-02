@@ -13,7 +13,7 @@ s|Application{
 	color:#bdbdbd;
 	fontFamily: Calibri;
 	background-color:#2d3540;
-	symbol-color:#ffff00;
+	symbol-color:#ff0000;
 	focus-color:#efefef;
 }  
 s|Label.header{
@@ -23,4 +23,7 @@ s|Label.header{
 }
 s|ButtonBar{
 	skin-class:ClassReference('assets.skins.ButtonBar.ButtonBarSkin');
+}
+s|List{
+	selectionColor:#000000;
 }
