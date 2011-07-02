@@ -111,6 +111,7 @@ package com.adams.quiz.view.mediators
 				currentPosition = pos;
 				currentQuestion = randomList.getItemAt(currentPosition) as QuestionItem;
 				setAllWrongChoices();
+				setCorrectAnswer(currentQuestion);
 				oldPosition = currentPosition;
 			}else{
 				currentPosition = oldPosition;
@@ -143,11 +144,14 @@ package com.adams.quiz.view.mediators
 			}
 		}
 		
-		protected function setQuestion(currentQuestion:QuestionItem):void {
+		protected function setCorrectAnswer(currentQuestion:QuestionItem):void {
 			var randomRadio:QRadioButton = view[Utils.CHOICE+Math.round(Math.random()*(4-1)+(1))]
 			randomRadio.label = currentQuestion.choice;
 			randomRadio.correctAnswer = true;
 			view.question.text =currentQuestion.question.split(currentQuestion.choice).join('___')
+		}
+		
+		protected function setQuestion(currentQuestion:QuestionItem):void {
 			var nameArr:Array = currentQuestion.choice.split(',')
 			if(nameArr){	
 				if(nameArr.length>1){
