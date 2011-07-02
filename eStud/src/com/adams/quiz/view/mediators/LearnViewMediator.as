@@ -91,6 +91,8 @@ package com.adams.quiz.view.mediators
 			currentPosition = 0;
 			maxPosition = randomList.length;
 			view.navigate.maximum= maxPosition;
+			view.navigate.incrementButton.visible =false;
+			view.navigate.decrementButton.visible =false;
 			setQuestion(gotoQuestion(currentPosition));
 		}
 		
