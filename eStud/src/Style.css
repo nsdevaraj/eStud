@@ -17,13 +17,12 @@ s|Application{
 	focus-color:#efefef;
 }  
 s|Label.header{
-	font-size:22;
-	color:#959595;
-	font-weight:normal;
-}
-s|ButtonBar{
-	skin-class:ClassReference('assets.skins.ButtonBar.ButtonBarSkin');
-}
+	font-size:35;
+	color:#ffffff;
+	font-weight:bold;
+	paddingTop:10;
+	paddingLeft:10;
+} 
 s|List{
 	selectionColor:#000000;
 }

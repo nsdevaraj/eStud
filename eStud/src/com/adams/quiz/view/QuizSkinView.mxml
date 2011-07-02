@@ -26,7 +26,8 @@
 	</fx:Declarations>
 	<s:Group width="100%" height="100%">
 		<components:NativeButton id="home" label="home" top="10"/>
-		<s:TextArea id="question" maxHeight="370" top="{home.height+10}" selectable="false"/>
+		<s:TextArea id="question" editable="false"
+					maxHeight="320" top="{home.height+10}" selectable="false"/>
 		<s:VGroup bottom="110">
 			<components1:QRadioButton id="choice1" group="{grp}" width="100%"/>
 			<components1:QRadioButton id="choice2" group="{grp}" width="100%"/>

@@ -33,6 +33,7 @@ package com.adams.quiz.util
 		public static const QUESTIONITEMKEY  :String='question';
 		
 		// todo: add dao
+       public static const HEADER_INDEX:String='Header';
 		public static const CHAPTERDAO  :String='chapterDAO'; 
 		public static const MENUDAO  :String='menuDAO'; 
 		public static const RESULT_INDEX:String='Result';
