@@ -91,7 +91,6 @@ package com.adams.quiz.view.mediators
 			super.init();  
 			viewState = Utils.WEB_INDEX;
 			webView.stage = this.stage;
-			webView.viewPort = new Rectangle( 0, 50, stage.stageWidth, stage.stageHeight-50);
 			webView.addEventListener(LocationChangeEvent.LOCATION_CHANGE,getUpdate);
 			setWebURL();
 		} 
@@ -101,7 +100,8 @@ package com.adams.quiz.view.mediators
 			//trace("The location changed."+webView.location);
 		} 
 		
-		protected function setWebURL():void {	    
+		protected function setWebURL():void {	
+			webView.viewPort = new Rectangle( 0, 50, stage.stageWidth, stage.stageHeight-50);
 			webView.loadURL("http://www.google.com/m/search?q="+currentInstance.mapConfig.currentTopic);
 		}
   

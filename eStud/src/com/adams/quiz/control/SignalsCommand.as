@@ -22,6 +22,8 @@ package com.adams.quiz.control
 	import com.adams.swizdao.util.Action;
 	import com.adams.swizdao.views.mediators.IViewMediator;
 	
+	import flash.geom.Rectangle;
+	
 	public class SignalsCommand
 	{
 		
@@ -136,6 +138,7 @@ package com.adams.quiz.control
 		 */
 		[ControlSignal(type='changeStateSignal')]
 		public function changestateAction(state:String):void {
+			if(mainViewMediator.view.web)mainViewMediator.view.web.webView.viewPort = new Rectangle( 0, 0, 0, 0);
 			mainViewMediator.view.currentState = state;
 		}
 	}
