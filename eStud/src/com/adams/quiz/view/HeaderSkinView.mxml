@@ -9,15 +9,13 @@
 	<s:Label id="logo" styleName="header" text="eStud" width='100%'
 			 height='100%' includeInLayout="{logo.visible}"/>
 	<s:HGroup id="btns" width='100%' height='100%' includeInLayout="{btns.visible}">
-		<s:Button id="menuBtn" width='33%' height='100%'
-				  includeInLayout="{menuBtn.visible}" label="Menu"/>
+		<s:Button id="menuBtn" width='100%' height='100%'
+				  includeInLayout="{menuBtn.visible}" toolTip="{menuBtn.label}"/>
 		<s:Button id="chapterBtn" width='100%' height='100%' 
-				  includeInLayout="{chapterBtn.visible}" label="Chapter"/>
-		<s:HGroup id="tbtns" width='33%' height='100%' includeInLayout="{tbtns.visible}">
-			<s:Button id="topicBtn" width='100%' height='100%' 
-					  includeInLayout="{topicBtn.visible}" label="Topic"/>
-			<s:Button id="learnBtn" width='100%' height='100%' 
-					  includeInLayout="{learnBtn.visible}" label="Learn"/>
-		</s:HGroup>
+				  includeInLayout="{chapterBtn.visible}" toolTip="{chapterBtn.label}"/>
+		<s:Button id="topicBtn" width='100%' height='100%' 
+				  includeInLayout="{topicBtn.visible}" label="List"/>
+		<s:Button id="learnBtn" width='100%' height='100%' 
+				  includeInLayout="{learnBtn.visible}" label="Learn"/>
 	</s:HGroup>
 </s:Skin>

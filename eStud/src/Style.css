@@ -23,6 +23,13 @@ s|Label.header{
 	paddingTop:10;
 	paddingLeft:10;
 } 
+s|TextArea.header{
+	font-size:35;
+	color:#ffffff;
+	font-weight:bold;
+	paddingTop:10;
+	paddingLeft:10;
+} 
 s|List{
 	selectionColor:#000000;
 } 

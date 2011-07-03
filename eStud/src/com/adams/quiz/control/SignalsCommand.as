@@ -89,6 +89,16 @@ package com.adams.quiz.control
 				default:
 					break;
 			}
+			if(Menu(currentInstance.mapConfig.currentMenu)){
+				mainViewMediator.view.header.view.menuBtn.label = Menu(currentInstance.mapConfig.currentMenu).menuLabel;
+			}else{
+				mainViewMediator.view.header.view.menuBtn.label = 'Menu';
+			}
+			if(Chapter(currentInstance.mapConfig.currentChapter)){
+				mainViewMediator.view.header.view.chapterBtn.label = Chapter(currentInstance.mapConfig.currentChapter).chapterLabel;
+			}else{
+				mainViewMediator.view.header.view.chapterBtn.label = 'Chapter';
+			}
 		}
 		
 		/**
