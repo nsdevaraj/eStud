@@ -110,6 +110,7 @@ package com.adams.quiz.view.mediators
 		} 
 		
 		protected function setQuestion(currentQuestion:QuestionItem):void {
+			currentInstance.mapConfig.currentTopic = currentQuestion.choice;
 			view.choice.text = currentQuestion.choice;
 			view.question.text = currentQuestion.question;
 		}  
@@ -122,12 +123,16 @@ package com.adams.quiz.view.mediators
 			view.quiz.clicked.add(viewClickHandlers);
 			view.back.clicked.add(viewClickHandlers);
 			view.next.clicked.add(viewClickHandlers);
+			view.learn.clicked.add(viewClickHandlers);
 			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);			
 			super.setViewListeners(); 
 		}
 		
 		protected function viewClickHandlers( ev:Event ): void { 
 			switch(ev.currentTarget){
+				case view.learn:
+					controlSignal.changeStateSignal.dispatch(Utils.WEB_INDEX);
+					break; 
 				case view.quiz:
 					controlSignal.changeStateSignal.dispatch(Utils.QUIZ_INDEX);
 					break; 
