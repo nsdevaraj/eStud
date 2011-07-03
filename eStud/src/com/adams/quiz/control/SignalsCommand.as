@@ -45,6 +45,53 @@ package com.adams.quiz.control
 		
 		// todo: add listener
 		/**
+		 * Whenever an HeaderStateSignal is dispatched.
+		 * MediateSignal initates this headerstateAction to perform control Actions
+		 * The invoke functions to perform control functions
+		 */
+		[ControlSignal(type='headerStateSignal')]
+		public function headerstateAction(obj:IViewMediator,state:String):void {
+			switch(state){
+				case Utils.HEADER_MENU_INDEX:
+					mainViewMediator.view.header.view.logo.visible=false;
+					mainViewMediator.view.header.view.btns.visible=true;
+					mainViewMediator.view.header.view.menuBtn.visible=true;
+					mainViewMediator.view.header.view.chapterBtn.visible=false;
+					mainViewMediator.view.header.view.topicBtn.visible=false;
+					break;
+				case Utils.HEADER_LOGO_INDEX:
+					mainViewMediator.view.header.view.logo.visible=true;
+					mainViewMediator.view.header.view.btns.visible=false;
+					break;
+				case Utils.HEADER_CHAPTER_INDEX:
+					mainViewMediator.view.header.view.logo.visible=false;
+					mainViewMediator.view.header.view.btns.visible=true;
+					mainViewMediator.view.header.view.menuBtn.visible=true;
+					mainViewMediator.view.header.view.chapterBtn.visible=true;
+					mainViewMediator.view.header.view.topicBtn.visible=false;
+					break;
+				case Utils.HEADER_TOPIC_INDEX:
+					mainViewMediator.view.header.view.logo.visible=false;
+					mainViewMediator.view.header.view.btns.visible=true;
+					mainViewMediator.view.header.view.menuBtn.visible=true;
+					mainViewMediator.view.header.view.chapterBtn.visible=true;
+					mainViewMediator.view.header.view.topicBtn.visible=true;
+					mainViewMediator.view.header.view.learnBtn.visible=false;
+					break;
+				case Utils.HEADER_LEARN_INDEX:
+					mainViewMediator.view.header.view.logo.visible=false;
+					mainViewMediator.view.header.view.btns.visible=true;
+					mainViewMediator.view.header.view.menuBtn.visible=true;
+					mainViewMediator.view.header.view.chapterBtn.visible=true;
+					mainViewMediator.view.header.view.topicBtn.visible=false;
+					mainViewMediator.view.header.view.learnBtn.visible=true;
+					break;
+				default:
+					break;
+			}
+		}
+		
+		/**
 		 * Whenever an LoadMenuSignal is dispatched.
 		 * MediateSignal initates this loadmenuAction to perform control Actions
 		 * The invoke functions to perform control functions
@@ -68,7 +115,6 @@ package com.adams.quiz.control
 			var currentChapter:Chapter = currentInstance.mapConfig.currentChapter as Chapter;
 			var currentMenu:Menu = currentChapter.menu;
 			signal.emailBody = currentInstance.config.serverLocation+currentMenu.menuXML+Utils.fileSplitter + currentChapter.chapterXML+Utils.XML;
-			trace(signal.emailBody )
 			signal.receivers = ['item','topics'];
 			signalSequence.addSignal(signal);
 		}

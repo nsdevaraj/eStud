@@ -22,13 +22,9 @@ package com.adams.quiz.view.mediators
 	import com.adams.swizdao.views.mediators.AbstractViewMediator;
 	
 	import flash.events.Event;
-	import flash.events.FocusEvent;
-	import flash.events.TextEvent;
 	
 	import mx.collections.ArrayCollection;
 	import mx.collections.IList;
-	
-	import spark.events.TextOperationEvent;
 	
 	
 	public class QuizViewMediator extends AbstractViewMediator
@@ -174,7 +170,6 @@ package com.adams.quiz.view.mediators
 		 * that we want to handle in this mediator.
 		 */
 		override protected function setViewListeners():void {
-			view.home.clicked.add(viewClickHandlers);
 			view.back.clicked.add(viewClickHandlers);
 			view.next.clicked.add(viewClickHandlers);
 			view.choice1.clicked.add(onSelection);
@@ -182,8 +177,6 @@ package com.adams.quiz.view.mediators
 			view.choice3.clicked.add(onSelection);
 			view.choice4.clicked.add(onSelection);
 			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);
-			//view.navigate.textDisplay.addEventListener(TextOperationEvent.CHANGE,viewClickHandlers,false,0,true);
-			//view.navigate.textDisplay.addEventListener(FocusEvent.FOCUS_IN,function(event:Object):void{ event.currentTarget.selectAll()}) 
 			super.setViewListeners(); 
 		}
 		
@@ -198,10 +191,7 @@ package com.adams.quiz.view.mediators
 		}
 		
 		protected function viewClickHandlers( ev:Event ): void { 
-			switch(ev.currentTarget){ 
-				case view.home:
-					controlSignal.changeStateSignal.dispatch(Utils.HOME_INDEX);
-					break;
+			switch(ev.currentTarget){  
 				case view.back:
 					currentPosition--;
 					setQuestion(gotoQuestion(currentPosition));

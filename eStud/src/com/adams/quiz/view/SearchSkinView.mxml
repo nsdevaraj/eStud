@@ -7,29 +7,8 @@
 		xmlns:components1="com.adams.swizdao.views.components.*">	
 	<fx:Metadata>
 		[HostComponent("com.adams.quiz.view.mediators.SearchViewMediator")]
-	</fx:Metadata>  
-	<fx:Script>
-		<![CDATA[
-			import mx.collections.IList;
-			/*
-			
-			Copyright (c) 2011 Adams Studio India, All Rights Reserved 
-			
-			@author   NS Devaraj
-			@contact  nsdevaraj@gmail.com
-			@project  eStud
-			
-			@internal 
-			
-			*/
-		]]>
-	</fx:Script> 
-	<s:VGroup width="100%" height="100%">
-		<components1:NativeButton id="home" label="Home"/>
-		<s:DropDownList id="menuList" labelField="menuLabel" width="100%" />
-		<s:DropDownList id="chapterList" labelField="chapterLabel" width="100%"/>
-		<s:List id="qitemsList" 
-				width="100%" height="100%"
-				labelField="choice"/>
-	</s:VGroup>
+	</fx:Metadata>   
+	<s:List id="qitemsList" 
+			width="100%" height="100%"
+			labelField="choice"/>
 </s:Skin>

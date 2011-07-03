@@ -18,6 +18,7 @@ package com.adams.quiz.signal
 	public class ControlSignal
 	{
 		// add Signal 
+        public var headerStateSignal:Signal= new Signal(IViewMediator,String);
 		public var loadMenuSignal:Signal= new Signal(IViewMediator);
 		public var loadXMLSignal:Signal= new Signal(IViewMediator);
 		public var changeStateSignal:Signal= new Signal(String);

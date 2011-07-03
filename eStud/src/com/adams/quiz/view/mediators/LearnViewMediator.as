@@ -93,6 +93,7 @@ package com.adams.quiz.view.mediators
 			view.navigate.maximum= maxPosition;
 			view.navigate.incrementButton.visible =false;
 			view.navigate.decrementButton.visible =false;
+			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_TOPIC_INDEX);
 			setQuestion(gotoQuestion(currentPosition));
 		}
 		
@@ -119,7 +120,6 @@ package com.adams.quiz.view.mediators
 		 */
 		override protected function setViewListeners():void {
 			view.quiz.clicked.add(viewClickHandlers);
-			view.home.clicked.add(viewClickHandlers);
 			view.back.clicked.add(viewClickHandlers);
 			view.next.clicked.add(viewClickHandlers);
 			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);			
@@ -130,10 +130,7 @@ package com.adams.quiz.view.mediators
 			switch(ev.currentTarget){
 				case view.quiz:
 					controlSignal.changeStateSignal.dispatch(Utils.QUIZ_INDEX);
-					break;
-				case view.home:
-					controlSignal.changeStateSignal.dispatch(Utils.HOME_INDEX);
-					break;
+					break; 
 				case view.back:
 					currentPosition--;
 					setQuestion(gotoQuestion(currentPosition));

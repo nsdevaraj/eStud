@@ -27,6 +27,11 @@ package com.adams.quiz.util
 		public static const XML:String=".xml";
 		// todo: add view index
 		public static const MAIN_INDEX:String='Main';
+		public static const HEADER_MENU_INDEX:String='HeaderMenu';
+		public static const HEADER_LOGO_INDEX:String='HeaderLogo'
+		public static const HEADER_CHAPTER_INDEX:String='HeaderChapter'
+		public static const HEADER_TOPIC_INDEX:String='HeaderTopic'
+		public static const HEADER_LEARN_INDEX:String='HeaderLearn'
 		// todo: add key
 		public static const CHAPTERKEY  :String='chapterId';
 		public static const MENUKEY  :String='menuId';

@@ -18,5 +18,6 @@ package com.adams.quiz.model.vo
 	{
 		 public var randomList:ArrayCollection;
 		 public var currentChapter:Chapter;
+		 public var currentMenu:Menu;
 	}
 }

@@ -92,18 +92,21 @@ package com.adams.quiz.view.mediators
 		override protected function init():void {
 			super.init();  
 			viewState = Utils.HOME_INDEX;
+			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_LOGO_INDEX);
 			if(!menuDAO.collection.items)controlSignal.loadMenuSignal.dispatch(this);
 		} 
 		
-		protected function backToHome(event:MouseEvent):void {
+		public function backToHome(event:MouseEvent):void {
 			view.currentState = Utils.MENU_INDEX;
+			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_LOGO_INDEX);
 		}
 		
-		protected function selectMenuHandler(event:IndexChangeEvent):void {
+		public function selectMenuHandler(event:IndexChangeEvent=null):void {
+			if(event!=null)currentInstance.mapConfig.currentMenu = Menu(view.menuList.selectedItem)
 			view.currentState = Utils.CHAPTER_INDEX;
-			view.backtoHome.clicked.add(backToHome);
+			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_CHAPTER_INDEX);
 			view.chapterList.addEventListener(IndexChangeEvent.CHANGE,selectChapterHandler,false,0,true);
-			view.chapterList.dataProvider = Menu(view.menuList.selectedItem).chapters;
+			view.chapterList.dataProvider = currentInstance.mapConfig.currentMenu.chapters;
 		} 
 		
 		protected function selectChapterHandler(event:IndexChangeEvent):void {
@@ -133,11 +136,7 @@ package com.adams.quiz.view.mediators
 				}
 				getRandomListOfQuestions(signal.currentProcessedCollection);
 			}
-		}
-		
-		protected function onSearch(ev:MouseEvent):void{
-			controlSignal.changeStateSignal.dispatch(Utils.SEARCH_INDEX);
-		}
+		} 
 		
 		protected function getRandomListOfQuestions(collection:IList):void{
 			currentInstance.mapConfig.randomList = new ArrayCollection();
@@ -150,19 +149,17 @@ package com.adams.quiz.view.mediators
 			} 
 			view.currentState = Utils.MENU_INDEX;
 			view.menuList.selectedItem = null;
-			controlSignal.changeStateSignal.dispatch(Utils.LEARN_INDEX);
+			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_LEARN_INDEX);
+			controlSignal.changeStateSignal.dispatch(Utils.SEARCH_INDEX);
 		}
 		/**
 		 * Create listeners for all of the view's children that dispatch events
 		 * that we want to handle in this mediator.
 		 */
 		override protected function setViewListeners():void {
-			view.search.clicked.add(onSearch);
 			view.menuList.addEventListener(IndexChangeEvent.CHANGE,selectMenuHandler,false,0,true);
 			super.setViewListeners(); 
 		}
-		override protected function pushResultHandler( signal:SignalVO ): void { 
-		} 
 		/**
 		 * Remove any listeners we've created.
 		 */

@@ -29,7 +29,7 @@ package com.adams.quiz.view.mediators
 	
 	import spark.events.IndexChangeEvent;
 	
-
+	
 	public class SearchViewMediator extends AbstractViewMediator
 	{ 		 
 		
@@ -63,7 +63,7 @@ package com.adams.quiz.view.mediators
 		protected function addedtoStage(ev:Event):void{
 			init();
 		}
-		     
+		
 		/**
 		 * Constructor.
 		 */
@@ -71,7 +71,7 @@ package com.adams.quiz.view.mediators
 		{
 			super( SearchSkinView ); 
 		}
-
+		
 		/**
 		 * Since the AbstractViewMediator sets the view via Autowiring in Swiz,
 		 * we need to create a local getter to access the underlying, expected view
@@ -95,23 +95,20 @@ package com.adams.quiz.view.mediators
 		override protected function init():void {
 			super.init();  
 			viewState = Utils.SEARCH_INDEX;
-			view.menuList.dataProvider = menuDAO.collection.items;
-			view.menuList.selectedIndex = 0;
-			view.menuList.invalidateDisplayList();
-			selectMenuHandler();
+			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_LEARN_INDEX);
+			selectChapterHandler();
 		} 
 		
-		protected function selectMenuHandler(event:IndexChangeEvent = null):void {
-			view.chapterList.dataProvider = Menu(view.menuList.selectedItem).chapters; 
-			view.chapterList.selectedIndex = 0;
-			view.chapterList.invalidateDisplayList();
-			selectChapterHandler()
-		} 
+		protected function selectQuestion( ev:IndexChangeEvent):void {
+			var currentQuestion:QuestionItem = view.qitemsList.selectedItem as QuestionItem;
+			ArrayCollection(currentInstance.mapConfig.randomList).removeItemAt(0);
+			ArrayCollection(currentInstance.mapConfig.randomList).addItemAt(currentQuestion,0);
+			controlSignal.changeStateSignal.dispatch(Utils.LEARN_INDEX);
+		}
+		
 		
 		protected function selectChapterHandler(event:IndexChangeEvent = null):void {
-			var currentChapter:Chapter = Chapter(view.chapterList.selectedItem);
-			currentInstance.mapConfig.currentChapter = currentChapter;
-			
+			var currentChapter:Chapter = currentInstance.mapConfig.currentChapter 
 			var getQues:QuestionItem = new QuestionItem();
 			getQues.chapter = currentChapter.chapterId;
 			var currentQuestion:QuestionItem = questionitemDAO.collection.findExistingPropItem(getQues,Utils.CHAPTER_INDEX.toLowerCase()) as QuestionItem;
@@ -123,28 +120,6 @@ package com.adams.quiz.view.mediators
 				getRandomListOfQuestions(currentChapter.questionsList);
 			}
 		}  
-		
-		protected function selectQuestion( ev:IndexChangeEvent):void {
-			var currentQuestion:QuestionItem = view.qitemsList.selectedItem as QuestionItem;
-			ArrayCollection(currentInstance.mapConfig.randomList).removeItemAt(0);
-			ArrayCollection(currentInstance.mapConfig.randomList).addItemAt(currentQuestion,0);
-			controlSignal.changeStateSignal.dispatch(Utils.LEARN_INDEX);
-		}
-		
-		protected function onHome(ev:MouseEvent):void{
-			controlSignal.changeStateSignal.dispatch(Utils.HOME_INDEX);
-		}
- 		/**
-		 * Create listeners for all of the view's children that dispatch events
-		 * that we want to handle in this mediator.
-		 */
-		override protected function setViewListeners():void {
-			view.home.clicked.add(onHome);
-			view.qitemsList.addEventListener(IndexChangeEvent.CHANGE,selectQuestion);
-			view.menuList.addEventListener(IndexChangeEvent.CHANGE,selectMenuHandler,false,0,true);
-			view.chapterList.addEventListener(IndexChangeEvent.CHANGE,selectChapterHandler,false,0,true);
-			super.setViewListeners(); 
-		}
 		
 		override protected function serviceResultHandler( obj:Object,signal:SignalVO ):void {  
 			if(signal.action == Action.HTTP_REQUEST && signal.destination == Utils.QUESTIONITEMKEY){
@@ -166,6 +141,14 @@ package com.adams.quiz.view.mediators
 			for(var i:int=0; i<maxLength; i++){
 				ArrayCollection(currentInstance.mapConfig.randomList).addItem(collection.getItemAt(_array[i]));
 			} 
+		}
+		/**
+		 * Create listeners for all of the view's children that dispatch events
+		 * that we want to handle in this mediator.
+		 */
+		override protected function setViewListeners():void {
+			view.qitemsList.addEventListener(IndexChangeEvent.CHANGE,selectQuestion);
+			super.setViewListeners(); 
 		}
 		
 		/**
