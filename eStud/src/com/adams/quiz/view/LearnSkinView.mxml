@@ -8,10 +8,6 @@
 	</fx:Metadata>   
 	<s:Group width="100%" height="100%">
 		<s:VGroup top="20">
-			<s:HGroup id="header" width="100%">
-				<components:NativeButton id="quiz" label="Quiz" includeInLayout="{quiz.visible}"/>
-				<components:NativeButton id="learn" label="Learn" includeInLayout="{learn.visible}"/>
-			</s:HGroup>
 			<s:TextArea id="choice" styleName="header"
 						width="100%" editable="false" selectable="false" />
 		</s:VGroup>
@@ -20,6 +16,9 @@
 			<components:NativeButton id="back" label="back"/>
 			<s:NumericStepper  id="navigate" maxChars="2" textAlign="center" minimum="1" stepSize="1" />
 			<components:NativeButton id="next" label="next"/>
+			<s:Spacer width="100%"/>
+			<components:NativeButton id="quiz" label="Quiz" includeInLayout="{quiz.visible}"/>
+			<components:NativeButton id="learn" label="Learn" includeInLayout="{learn.visible}"/>
 		</s:HGroup>
 	</s:Group> 
 </s:Skin>
