@@ -172,6 +172,7 @@ package com.adams.quiz.view.mediators
 		override protected function setViewListeners():void {
 			view.back.clicked.add(viewClickHandlers);
 			view.next.clicked.add(viewClickHandlers);
+			view.learn.clicked.add(viewClickHandlers);
 			view.choice1.clicked.add(onSelection);
 			view.choice2.clicked.add(onSelection);
 			view.choice3.clicked.add(onSelection);
@@ -199,6 +200,9 @@ package com.adams.quiz.view.mediators
 				case view.next:
 					currentPosition++;
 					setQuestion(gotoQuestion(currentPosition));
+					break;
+				case view.learn:
+					controlSignal.changeStateSignal.dispatch(Utils.LEARN_INDEX);
 					break;
 				case view.navigate:
 				case view.navigate.textDisplay:
