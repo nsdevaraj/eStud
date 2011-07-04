@@ -188,11 +188,12 @@ package com.adams.quiz.view.mediators
 		protected function onSelection( ev:Event ): void { 
 			var currentRadio:QRadioButton = ev.currentTarget as QRadioButton
 			var currentSkin:QRadioSkin = QRadioSkin(currentRadio.skin);
-			if(oldSkin) oldSkin.correctFeedback.visible =oldSkin.wrongFeedback.visible =false;
+			view.feedback.text =''
+			if(oldSkin) oldSkin.correctFeedback.visible = false;
 			if(currentRadio.correctAnswer){
 				currentSkin.correctFeedback.visible =true;
 			} else{
-				currentSkin.wrongFeedback.visible =true;
+				 view.feedback.text = 'Try Again'
 			}
 			oldSkin = currentSkin;
 		}

@@ -26,6 +26,8 @@ package com.adams.quiz.view.mediators
 	
 	import mx.collections.ArrayCollection;
 	import mx.collections.IList;
+	import mx.core.FlexGlobals;
+	import mx.events.ResizeEvent;
 	
 	import spark.events.IndexChangeEvent;
 	
@@ -94,13 +96,16 @@ package com.adams.quiz.view.mediators
 			viewState = Utils.HOME_INDEX;
 			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_LOGO_INDEX);
 			if(!menuDAO.collection.items)controlSignal.loadMenuSignal.dispatch(this);
+			FlexGlobals.topLevelApplication.addEventListener(ResizeEvent.RESIZE,applicationResizeHandler, false, 0, true);
 		} 
 		
 		public function backToHome(event:MouseEvent):void {
 			view.currentState = Utils.MENU_INDEX;
 			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_LOGO_INDEX);
 		}
-		
+		protected function applicationResizeHandler(event:ResizeEvent=null):void{
+			//view.currentState =FlexGlobals.topLevelApplication.aspectRatio;
+		} 
 		public function selectMenuHandler(event:IndexChangeEvent=null):void {
 			if(event!=null)currentInstance.mapConfig.currentMenu = Menu(view.menuList.selectedItem)
 			view.currentState = Utils.CHAPTER_INDEX;
