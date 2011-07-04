@@ -21,6 +21,8 @@ package com.adams.quiz.view.mediators
 	import flash.events.Event;
 	import flash.events.GestureEvent;
 	import flash.events.TransformGestureEvent;
+	import flash.ui.Multitouch;
+	import flash.ui.MultitouchInputMode;
 	
 	import mx.collections.ArrayCollection;
 	
@@ -96,6 +98,13 @@ package com.adams.quiz.view.mediators
 			view.navigate.decrementButton.visible =false;
 			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_TOPIC_INDEX);
 			setQuestion(gotoQuestion(currentPosition));
+			Multitouch.inputMode = MultitouchInputMode.GESTURE;
+			for each (var item:String in Multitouch.supportedGestures)
+			{
+				if (item == TransformGestureEvent.GESTURE_SWIPE){
+					view.addEventListener(TransformGestureEvent.GESTURE_SWIPE,handleSwipe);
+				}
+			}
 		}
 		
 		protected function gotoQuestion(pos:int):QuestionItem {
@@ -126,18 +135,18 @@ package com.adams.quiz.view.mediators
 			view.next.clicked.add(viewClickHandlers);
 			view.learn.clicked.add(viewClickHandlers);
 			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);
-			view.addEventListener(TransformGestureEvent.GESTURE_SWIPE,handleSwipe);
 			super.setViewListeners(); 
 		}  
 		private function handleSwipe(event:TransformGestureEvent):void
 		{
-			trace('here')
 			// Swipe was to the right
 			if (event.offsetX == 1 ) {
-			 trace('here')
+				currentPosition++;
+				setQuestion(gotoQuestion(currentPosition));
 			}
 			else if (event.offsetX == -1 ) {
-				trace('here')
+				currentPosition--;
+				setQuestion(gotoQuestion(currentPosition));
 			}
 		}
 		
