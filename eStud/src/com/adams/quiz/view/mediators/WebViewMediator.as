@@ -104,13 +104,12 @@ package com.adams.quiz.view.mediators
 			webView.viewPort = new Rectangle( 0, 50, stage.stageWidth, stage.stageHeight-50);
 			webView.loadURL("http://www.google.com/m/search?q="+currentInstance.mapConfig.currentTopic);
 		}
-  
- 		override protected function pushResultHandler( signal:SignalVO ): void { 
-		} 
+   
 		/**
 		 * Remove any listeners we've created.
 		 */
 		override protected function cleanup( event:Event ):void {
+			webView.dispose();
 			super.cleanup( event ); 		
 		} 
 	}

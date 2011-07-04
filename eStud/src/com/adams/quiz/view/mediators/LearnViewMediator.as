@@ -126,8 +126,20 @@ package com.adams.quiz.view.mediators
 			view.next.clicked.add(viewClickHandlers);
 			view.learn.clicked.add(viewClickHandlers);
 			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);
+			view.addEventListener(TransformGestureEvent.GESTURE_SWIPE,handleSwipe);
 			super.setViewListeners(); 
 		}  
+		private function handleSwipe(event:TransformGestureEvent):void
+		{
+			trace('here')
+			// Swipe was to the right
+			if (event.offsetX == 1 ) {
+			 trace('here')
+			}
+			else if (event.offsetX == -1 ) {
+				trace('here')
+			}
+		}
 		
 		protected function viewClickHandlers( ev:Event ): void { 
 			switch(ev.currentTarget){

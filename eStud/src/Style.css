@@ -43,6 +43,9 @@ s|TextArea.header{
 	paddingTop:10;
 	paddingLeft:10;
 } 
+s|Button{
+	skinClass:ClassReference("assets.skins.MButtonSkin")
+}
 s|List{
 	selectionColor:#000000;
 } 
