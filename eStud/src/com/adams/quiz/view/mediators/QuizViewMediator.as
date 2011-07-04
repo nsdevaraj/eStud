@@ -103,7 +103,7 @@ package com.adams.quiz.view.mediators
 			currentPosition = 0;
 			maxPosition = randomList.length;
 			view.navigate.maximum= maxPosition+1;
-			view.maxQs.text = " of "+maxPosition;
+			view.maxQs.text = "of "+maxPosition;
 			view.navigate.incrementButton.visible =false;
 			view.navigate.decrementButton.visible =false;
 			setQuestion(gotoQuestion(currentPosition));
@@ -196,7 +196,7 @@ package com.adams.quiz.view.mediators
 			if(currentRadio.correctAnswer){
 				currentSkin.correctFeedback.visible =true;
 			} else{
-				 view.feedback.text = 'Try Again'
+				view.feedback.text = 'Try Again'
 			}
 			oldSkin = currentSkin;
 		}

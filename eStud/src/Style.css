@@ -1,6 +1,7 @@
 @namespace s "library://ns.adobe.com/flex/spark";
 @namespace mx "library://ns.adobe.com/flex/mx"; 
 @namespace components "com.adams.quiz.view.components.*";
+@namespace components1 "com.adams.swizdao.views.components.*";
 
 @font-face
 {
@@ -16,7 +17,7 @@ s|Application{
 	background-color:#2d3540;
 	symbol-color:#ff0000;
 	focus-color:#efefef;
-}  
+}   
 s|Label.header{
 	font-size:35;
 	color:#ffffff;
