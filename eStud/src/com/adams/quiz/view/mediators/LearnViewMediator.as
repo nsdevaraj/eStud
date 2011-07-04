@@ -19,10 +19,9 @@ package com.adams.quiz.view.mediators
 	import com.adams.swizdao.views.mediators.AbstractViewMediator;
 	
 	import flash.events.Event;
+	import flash.events.GestureEvent;
 	
 	import mx.collections.ArrayCollection;
-	
-	import spark.events.TextOperationEvent;
 	
 	
 	public class LearnViewMediator extends AbstractViewMediator

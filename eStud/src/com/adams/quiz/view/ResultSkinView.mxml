@@ -2,25 +2,6 @@
 <s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
 		xmlns:mediators="com.adams.quiz.view.mediators.*" 
-		xmlns:components="com.adams.swizdao.views.components.*">	
-	<fx:Metadata>
-		[HostComponent("com.adams.quiz.view.mediators.ResultViewMediator")]
-	</fx:Metadata>  
-	<fx:Script>
-		<![CDATA[
-			/*
-			
-			Copyright (c) 2011 Adams Studio India, All Rights Reserved 
-			
-			@author   NS Devaraj
-			@contact  nsdevaraj@gmail.com
-			@project  eStud
-			
-			@internal 
-			
-			*/
-		]]>
-	</fx:Script> 
-	<components:NativeButton id="home"/>
+		xmlns:components="com.adams.swizdao.views.components.*">	 
 	<s:Label id="result"/>
 </s:Skin>
