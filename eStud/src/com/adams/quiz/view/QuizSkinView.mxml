@@ -10,8 +10,8 @@
 		<s:RadioButtonGroup id="grp"/>
 	</fx:Declarations>
 	<s:Group width="100%" height="100%">
-		<s:TextArea id="question" editable="false" width="100%"
-					maxHeight="320" top="10" selectable="false"/>
+		<s:TextArea id="question" editable="false" right="10"
+					maxHeight="320" top="10" left="10" selectable="false"/>
 		<s:VGroup bottom="110">
 			<components1:QRadioButton id="choice1" group="{grp}" width="100%"/>
 			<components1:QRadioButton id="choice2" group="{grp}" width="100%"/>
