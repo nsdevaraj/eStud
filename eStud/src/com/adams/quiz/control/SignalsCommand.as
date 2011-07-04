@@ -69,8 +69,9 @@ package com.adams.quiz.control
 					mainViewMediator.view.header.view.logo.visible=false;
 					mainViewMediator.view.header.view.btns.visible=true;
 					mainViewMediator.view.header.view.menuBtn.visible=true;
-					mainViewMediator.view.header.view.chapterBtn.visible=true;
+					mainViewMediator.view.header.view.chapterBtn.visible=false;
 					mainViewMediator.view.header.view.topicBtn.visible=false;
+					mainViewMediator.view.header.view.learnBtn.visible=false;
 					break;
 				case Utils.HEADER_TOPIC_INDEX:
 					mainViewMediator.view.header.view.logo.visible=false;
