@@ -3,7 +3,7 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:swiz='*'  
 			   creationComplete="addElement(context.mainview)">
-	<fx:Style source="Style.css" /> 
+	<fx:Style source="Style.css" />  
 	<fx:Declarations>
 		<swiz:Context id="context" dispatcher="{ this }"/>
 	</fx:Declarations>  

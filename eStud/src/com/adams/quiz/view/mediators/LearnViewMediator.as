@@ -91,6 +91,7 @@ package com.adams.quiz.view.mediators
 			currentPosition = 0;
 			maxPosition = randomList.length;
 			view.navigate.maximum= maxPosition;
+			view.maxQs.text = " of "+maxPosition;
 			view.navigate.incrementButton.visible =false;
 			view.navigate.decrementButton.visible =false;
 			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_TOPIC_INDEX);

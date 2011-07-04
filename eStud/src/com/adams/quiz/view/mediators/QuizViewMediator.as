@@ -11,6 +11,8 @@ Copyright (c) 2011 Adams Studio India, All Rights Reserved
 */
 package com.adams.quiz.view.mediators
 { 
+	import assets.skins.QRadioSkin;
+	
 	import com.adams.quiz.model.AbstractDAO;
 	import com.adams.quiz.model.vo.*;
 	import com.adams.quiz.signal.ControlSignal;
@@ -40,7 +42,7 @@ package com.adams.quiz.view.mediators
 		private var currentQuestion:QuestionItem;
 		private var currentPosition:int;
 		private var oldPosition:int;
-		
+		private var oldSkin:QRadioSkin;
 		private var maxPosition:int;
 		private var _homeState:String;
 		
@@ -101,6 +103,7 @@ package com.adams.quiz.view.mediators
 			currentPosition = 0;
 			maxPosition = randomList.length;
 			view.navigate.maximum= maxPosition+1;
+			view.maxQs.text = " of "+maxPosition;
 			view.navigate.incrementButton.visible =false;
 			view.navigate.decrementButton.visible =false;
 			setQuestion(gotoQuestion(currentPosition));
@@ -184,11 +187,14 @@ package com.adams.quiz.view.mediators
 		
 		protected function onSelection( ev:Event ): void { 
 			var currentRadio:QRadioButton = ev.currentTarget as QRadioButton
+			var currentSkin:QRadioSkin = QRadioSkin(currentRadio.skin);
+			if(oldSkin) oldSkin.correctFeedback.visible =oldSkin.wrongFeedback.visible =false;
 			if(currentRadio.correctAnswer){
-				trace('correct')
+				currentSkin.correctFeedback.visible =true;
 			} else{
-				trace('wrong')
+				currentSkin.wrongFeedback.visible =true;
 			}
+			oldSkin = currentSkin;
 		}
 		
 		protected function viewClickHandlers( ev:Event ): void { 

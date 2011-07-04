@@ -1,5 +1,6 @@
 @namespace s "library://ns.adobe.com/flex/spark";
 @namespace mx "library://ns.adobe.com/flex/mx"; 
+@namespace components "com.adams.quiz.view.components.*";
 
 @font-face
 {
@@ -33,3 +34,6 @@ s|TextArea.header{
 s|List{
 	selectionColor:#000000;
 } 
+components|QRadioButton{
+	skinClass:ClassReference("assets.skins.QRadioSkin")
+}
