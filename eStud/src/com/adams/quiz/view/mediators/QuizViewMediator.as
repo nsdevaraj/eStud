@@ -184,12 +184,15 @@ package com.adams.quiz.view.mediators
 			super.setViewListeners(); 
 		}
 		
+		protected function resetFeedback():void{
+			view.feedback.text =''
+			if(oldSkin) oldSkin.correctFeedback.visible = false;
+		}
 		
 		protected function onSelection( ev:Event ): void { 
 			var currentRadio:QRadioButton = ev.currentTarget as QRadioButton
 			var currentSkin:QRadioSkin = QRadioSkin(currentRadio.skin);
-			view.feedback.text =''
-			if(oldSkin) oldSkin.correctFeedback.visible = false;
+			resetFeedback();
 			if(currentRadio.correctAnswer){
 				currentSkin.correctFeedback.visible =true;
 			} else{
@@ -199,6 +202,7 @@ package com.adams.quiz.view.mediators
 		}
 		
 		protected function viewClickHandlers( ev:Event ): void { 
+			resetFeedback();
 			switch(ev.currentTarget){  
 				case view.back:
 					currentPosition--;

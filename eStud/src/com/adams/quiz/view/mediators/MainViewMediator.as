@@ -20,6 +20,9 @@ package com.adams.quiz.view.mediators
 	
 	import flash.events.Event;
 	
+	import mx.core.FlexGlobals;
+	import mx.events.ResizeEvent;
+	
 
 	public class MainViewMediator extends AbstractViewMediator
 	{ 		 
@@ -77,24 +80,6 @@ package com.adams.quiz.view.mediators
 		override protected function init():void {
 			super.init();  
 			viewState = Utils.MAIN_INDEX;
-			 
-		} 
-		protected function setDataProviders():void {	    
-		}
-		override protected function setRenderers():void {
-			super.setRenderers();  
-		} 
- 
-		override protected function serviceResultHandler( obj:Object,signal:SignalVO ):void {  
-		}
- 		/**
-		 * Create listeners for all of the view's children that dispatch events
-		 * that we want to handle in this mediator.
-		 */
-		override protected function setViewListeners():void {
-			super.setViewListeners(); 
-		}
- 		override protected function pushResultHandler( signal:SignalVO ): void { 
 		} 
 		/**
 		 * Remove any listeners we've created.

@@ -99,13 +99,15 @@ package com.adams.quiz.view.mediators
 			FlexGlobals.topLevelApplication.addEventListener(ResizeEvent.RESIZE,applicationResizeHandler, false, 0, true);
 		} 
 		
+		protected function applicationResizeHandler(event:ResizeEvent=null):void{
+			//view.currentState =FlexGlobals.topLevelApplication.aspectRatio;
+		} 
+		
 		public function backToHome(event:MouseEvent):void {
 			view.currentState = Utils.MENU_INDEX;
 			controlSignal.headerStateSignal.dispatch(this,Utils.HEADER_LOGO_INDEX);
 		}
-		protected function applicationResizeHandler(event:ResizeEvent=null):void{
-			//view.currentState =FlexGlobals.topLevelApplication.aspectRatio;
-		} 
+		
 		public function selectMenuHandler(event:IndexChangeEvent=null):void {
 			if(event!=null)currentInstance.mapConfig.currentMenu = Menu(view.menuList.selectedItem)
 			view.currentState = Utils.CHAPTER_INDEX;

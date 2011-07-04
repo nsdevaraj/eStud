@@ -23,7 +23,7 @@ package assets.skins
 			correctFeedback = new CheckBox();
 			correctFeedback.selected=true;
 			correctFeedback.visible=false;
-			correctFeedback.x = 150;
+			correctFeedback.x = 350;
 			this.addChild(correctFeedback);
 		}
 		override protected function drawBackground(unscaledWidth:Number, unscaledHeight:Number):void
