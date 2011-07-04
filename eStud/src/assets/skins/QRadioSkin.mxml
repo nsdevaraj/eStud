@@ -149,12 +149,12 @@ in accordance with the terms of the license agreement accompanying it.
 	
 	<!-- Label -->
 	<!---  @copy spark.components.supportClasses.ButtonBase#labelDisplay -->
-	<s:HGroup left="18" maxHeight="20" right="30" top="3" bottom="3" verticalAlign="middle">
+	<s:HGroup left="18" maxHeight="30" right="0" top="3" bottom="3" verticalAlign="middle">
 		<s:Label id="labelDisplay"
-				 textAlign="start"
-				 verticalAlign="middle"
+				 textAlign="start" color="white"
+				 verticalAlign="middle" backgroundColor="black"
 				 maxDisplayedLines="1"  left="0" 
-				 paddingRight="20"/>
+				 paddingRight="10"/>
 		<s:CheckBox id="correctFeedback" right="0" selected="true" color="green" visible="false"/>
 		<s:Label id="wrongFeedback" styleName="header" text="X" right="0" color="red" visible="false"/>
 	</s:HGroup>
