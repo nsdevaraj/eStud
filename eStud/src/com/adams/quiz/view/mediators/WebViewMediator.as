@@ -11,24 +11,15 @@ Copyright (c) 2011 Adams Studio India, All Rights Reserved
 */
 package com.adams.quiz.view.mediators
 { 
-	import com.adams.quiz.model.AbstractDAO;
 	import com.adams.quiz.model.vo.*;
 	import com.adams.quiz.signal.ControlSignal;
 	import com.adams.quiz.util.Utils;
 	import com.adams.quiz.view.WebSkinView;
-	import com.adams.swizdao.dao.PagingDAO;
 	import com.adams.swizdao.model.vo.*;
-	import com.adams.swizdao.response.SignalSequence;
-	import com.adams.swizdao.util.Action;
-	import com.adams.swizdao.util.ArrayUtil;
-	import com.adams.swizdao.util.Description;
-	import com.adams.swizdao.util.ObjectUtils;
-	import com.adams.swizdao.views.components.NativeList;
 	import com.adams.swizdao.views.mediators.AbstractViewMediator;
 	
 	import flash.events.Event;
 	import flash.events.LocationChangeEvent;
-	import flash.events.MouseEvent;
 	import flash.geom.Rectangle;
 	import flash.media.StageWebView;
 	
@@ -109,7 +100,6 @@ package com.adams.quiz.view.mediators
 		 * Remove any listeners we've created.
 		 */
 		override protected function cleanup( event:Event ):void {
-			webView.dispose();
 			super.cleanup( event ); 		
 		} 
 	}
