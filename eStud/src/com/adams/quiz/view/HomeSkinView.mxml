@@ -15,7 +15,7 @@
 				selectionColor="black" width="100%" height="100%"/>
 		<s:List id="chapterList" labelField="chapterLabel" includeIn="Chapter"  width="100%" height="100%">
 			<s:layout>
-				<s:TileLayout requestedColumnCount="2"/>
+				<s:TileLayout />
 			</s:layout>
 		</s:List>
 	</s:VGroup>

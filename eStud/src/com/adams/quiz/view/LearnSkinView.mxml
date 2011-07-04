@@ -7,18 +7,18 @@
 		[HostComponent("com.adams.quiz.view.mediators.LearnViewMediator")]
 	</fx:Metadata>   
 	<s:Group width="100%" height="100%">
-		<s:VGroup top="20">
+		<s:VGroup id="answer" top="20">
 			<s:TextArea id="choice" styleName="header"
 						width="100%" editable="false" selectable="false" />
 		</s:VGroup>
-		<s:TextArea id="question" editable="false" maxHeight="450" top="150" selectable="false"/> 
+		<s:TextArea id="question" editable="false" maxHeight="450" top="{answer.height+20}" width="100%" selectable="false"/> 
 		<s:HGroup id="footer" width="100%" bottom="20">
 			<components:NativeButton id="back" label="back"/>
 			<s:NumericStepper  id="navigate" maxChars="2" textAlign="center" minimum="1" stepSize="1" />
 			<components:NativeButton id="next" label="next"/>
 			<s:Spacer width="100%"/>
-			<components:NativeButton id="quiz" label="Quiz" includeInLayout="{quiz.visible}"/>
 			<components:NativeButton id="learn" label="Learn" includeInLayout="{learn.visible}"/>
+			<components:NativeButton id="quiz" label="Quiz" includeInLayout="{quiz.visible}"/>
 		</s:HGroup>
 	</s:Group> 
 </s:Skin>
