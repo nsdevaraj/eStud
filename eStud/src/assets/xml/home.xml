@@ -55,11 +55,11 @@
 		<chapter id="47">1450to1770</chapter>
 		<chapter id="48">1770to1914</chapter>
 		<chapter id="49">1915to2010</chapter>
-		<chapter id="40">birthdays</chapter>
-		<chapter id="41">events</chapter>
-		<chapter id="42">religion</chapter>
-		<chapter id="43">uk</chapter>
-		<chapter id="44">us</chapter>
+		<chapter id="107">birthdays</chapter>
+		<chapter id="108">events</chapter>
+		<chapter id="109">religion</chapter>
+		<chapter id="110">uk</chapter>
+		<chapter id="111">us</chapter>
 	</menu>		
 	<menu id="4" label="legends">
 		<chapter id="45">astronomers</chapter>
