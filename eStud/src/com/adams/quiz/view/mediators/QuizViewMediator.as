@@ -24,6 +24,9 @@ package com.adams.quiz.view.mediators
 	import com.adams.swizdao.views.mediators.AbstractViewMediator;
 	
 	import flash.events.Event;
+	import flash.events.TransformGestureEvent;
+	import flash.ui.Multitouch;
+	import flash.ui.MultitouchInputMode;
 	
 	import mx.collections.ArrayCollection;
 	import mx.collections.IList;
@@ -107,6 +110,26 @@ package com.adams.quiz.view.mediators
 			view.navigate.incrementButton.visible =false;
 			view.navigate.decrementButton.visible =false;
 			setQuestion(gotoQuestion(currentPosition));
+			Multitouch.inputMode = MultitouchInputMode.GESTURE;
+			for each (var item:String in Multitouch.supportedGestures)
+			{
+				if (item == TransformGestureEvent.GESTURE_SWIPE){
+					view.addEventListener(TransformGestureEvent.GESTURE_SWIPE,handleSwipe);
+				}
+			}
+		}
+		
+		private function handleSwipe(event:TransformGestureEvent):void
+		{
+			// Swipe was to the right
+			if (event.offsetX == 1 ) {
+				currentPosition++;
+				setQuestion(gotoQuestion(currentPosition));
+			}
+			else if (event.offsetX == -1 ) {
+				currentPosition--;
+				setQuestion(gotoQuestion(currentPosition));
+			}
 		}
 		
 		protected function gotoQuestion(pos:int):QuestionItem {

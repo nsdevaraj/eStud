@@ -137,6 +137,7 @@ package com.adams.quiz.view.mediators
 			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);
 			super.setViewListeners(); 
 		}  
+		
 		private function handleSwipe(event:TransformGestureEvent):void
 		{
 			// Swipe was to the right
