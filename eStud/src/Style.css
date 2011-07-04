@@ -1,11 +1,16 @@
 @namespace s "library://ns.adobe.com/flex/spark";
 @namespace mx "library://ns.adobe.com/flex/mx"; 
 @namespace components "com.adams.quiz.view.components.*";
-@namespace components1 "com.adams.swizdao.views.components.*";
 
 @font-face
 {
 	fontFamily: Calibri;
+	src: url("/assets/fonts/CALIBRI.TTF");
+	embedAsCFF: false;
+}  
+@font-face
+{
+	fontFamily: CalibriMX;
 	src: url("/assets/fonts/CALIBRI.TTF");
 	embedAsCFF: true;
 }  
@@ -18,6 +23,12 @@ s|Application{
 	symbol-color:#ff0000;
 	focus-color:#efefef;
 }   
+s|RichEditableText{
+	fontFamily:CalibriMX;
+}
+s|Label{
+	fontFamily:CalibriMX;
+}
 s|Label.header{
 	font-size:35;
 	color:#ffffff;

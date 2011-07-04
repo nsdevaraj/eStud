@@ -20,6 +20,7 @@ package com.adams.quiz.view.mediators
 	
 	import flash.events.Event;
 	import flash.events.GestureEvent;
+	import flash.events.TransformGestureEvent;
 	
 	import mx.collections.ArrayCollection;
 	
@@ -124,9 +125,9 @@ package com.adams.quiz.view.mediators
 			view.back.clicked.add(viewClickHandlers);
 			view.next.clicked.add(viewClickHandlers);
 			view.learn.clicked.add(viewClickHandlers);
-			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);			
+			view.navigate.addEventListener(Event.CHANGE,viewClickHandlers,false,0,true);
 			super.setViewListeners(); 
-		}
+		}  
 		
 		protected function viewClickHandlers( ev:Event ): void { 
 			switch(ev.currentTarget){
