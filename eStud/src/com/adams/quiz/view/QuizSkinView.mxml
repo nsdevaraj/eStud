@@ -16,7 +16,7 @@
 			<components1:QRadioButton id="choice3" group="{grp}" width="100%"/>
 			<components1:QRadioButton id="choice4" group="{grp}" width="100%"/>
 		</s:VGroup>
-		<s:HGroup id="footer" verticalAlign="middle" width="100%" bottom="10" paddingRight="5">
+		<s:HGroup id="footer" verticalAlign="middle" width="100%" bottom="5" paddingRight="5">
 			<components:NativeButton id="back" label="back"/>
 			<s:NumericStepper id="navigate" maxChars="1" textAlign="center" minimum="1" stepSize="1" />
 			<s:Label id="maxQs"/>
